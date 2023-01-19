@@ -9,13 +9,14 @@ public class Util {
     private static String URL = "jdbc:mysql://localhost:3306/studytestdb";
     private static String USERNAME = "root";
     private static String PASSWORD = "1234";
-    private Connection connection;
+    private static Connection connection;
 
-    public Util () throws SQLException {
-        connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
+    public Util (){
+
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection()  throws SQLException  {
+        connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
         return connection;
     }
 }

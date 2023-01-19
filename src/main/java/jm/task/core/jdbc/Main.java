@@ -21,11 +21,11 @@ public class Main {
 
         System.out.println(users.getAllUsers().toString());
 
-        users.cleanUsersTable();
+//        users.cleanUsersTable();
 
-        System.out.println(users.getAllUsers());
+//        System.out.println(users.getAllUsers());
 
-        users.dropUsersTable();
+//        users.dropUsersTable();
 
 
 
