@@ -70,7 +70,6 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Statement statement = connection.createStatement();) {
             connection.setAutoCommit(false);
             statement.execute("drop table if exists users");
-
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -116,9 +115,10 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        try (Statement statement = connection.createStatement();) {
+        try (PreparedStatement statement = connection.prepareStatement("delete from users where id=?")) {
             connection.setAutoCommit(false);
-            statement.executeUpdate("delete from users where id=" + id);
+            statement.setLong(1,id);
+            statement.executeUpdate();
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
